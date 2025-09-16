@@ -9,9 +9,9 @@ export default defineConfig({
   head: [
     ["link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
     ["meta", { name: "theme-color", content: "#1e7c73" }],
-    ["meta", { name: "description", content: "Express-style routing toolkit built natively for Bun." }],
+    ["meta", { name: "description", content: "Run everything. The Bun way." }],
     ["meta", { property: "og:title", content: "bunway" }],
-    ["meta", { property: "og:description", content: "Express-style routing toolkit built natively for Bun." }],
+    ["meta", { property: "og:description", content: "Run everything. The Bun way." }],
   ],
   themeConfig: {
     nav: [{ text: "API Reference", link: "/api/" }],

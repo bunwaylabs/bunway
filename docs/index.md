@@ -4,7 +4,7 @@ title: "bunway"
 hero:
   name: "bunway"
   text: "Bun-native routing toolkit"
-  tagline: "Express vibes. Bun-first DNA."
+  tagline: "Run everything. The Bun way."
   actions:
     - theme: brand
       text: Get Started

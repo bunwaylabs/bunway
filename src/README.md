@@ -1,6 +1,6 @@
 # bunway
 
-**Express vibes. Bun-first DNA.** bunway is an open-source experiment to recreate the ergonomics of Express on top of Bun’s native runtime. If you moved to Bun for its speed and modern APIs but miss the familiar middleware/route flow, this toolkit is for you.
+**Run everything. The Bun way.** bunway is an open-source experiment to recreate the ergonomics of Express on top of Bun’s native runtime. If you moved to Bun for its speed and modern APIs but miss the familiar middleware/route flow, this toolkit is for you.
 
 ## Overview
 

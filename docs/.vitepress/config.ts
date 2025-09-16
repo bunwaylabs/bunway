@@ -1,11 +1,11 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
-  base: '/bunway/',
+  base: "/",
   title: "bunway",
   description: "Bun-native routing toolkit",
   appearance: "dark",
-  cleanUrls: true,
+  cleanUrls: false,
   lastUpdated: true,
   head: [
     ["link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
@@ -15,7 +15,7 @@ export default defineConfig({
     ["meta", { property: "og:description", content: "Run everything. The Bun way." }],
   ],
   themeConfig: {
-    nav: [{ text: "API Reference", link: "/api/" }],
+    nav: [{ text: "API Reference", link: "https://bunwaylabs.github.io/bunway/api/index.html" }],
     outline: [2, 3],
     docFooter: {
       prev: "Previous",

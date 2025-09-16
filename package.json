@@ -37,7 +37,9 @@
     "docs:build": "npm run docs && vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "format": "prettier --write .",
-    "prepare:dist": "rm -rf dist && npm run build && node scripts/prepare-dist.mjs"
+    "prepare:dist": "rm -rf dist && npm run build && node scripts/prepare-dist.mjs",
+    "check:dist": "node scripts/verify-dist.mjs",
+    "release": "npm run typecheck && npm run test && npm run docs:build && npm run prepare:dist && npm run check:dist && npm publish dist --access public"
   },
   "devDependencies": {
     "@types/bun": "latest",

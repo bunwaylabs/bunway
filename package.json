@@ -1,0 +1,51 @@
+{
+  "name": "bunway",
+  "version": "0.1.0",
+  "description": "Express-style routing toolkit built natively for Bun.",
+  "private": true,
+  "type": "module",
+  "module": "./src/index.ts",
+  "license": "MIT",
+  "author": "bunwaylabs <shayanhussain48@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bunwaylabs/bunway.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bunwaylabs/bunway/issues"
+  },
+  "homepage": "https://github.com/bunwaylabs/bunway#readme",
+  "keywords": [
+    "bun",
+    "router",
+    "express",
+    "expressjs",
+    "express-style",
+    "middleware",
+    "http",
+    "rest",
+    "web-framework",
+    "server",
+    "typescript"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "build": "tsc --project tsconfig.json",
+    "docs": "typedoc --options typedoc.json",
+    "docs:dev": "npm run docs && vitepress dev docs",
+    "docs:build": "npm run docs && vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "format": "prettier --write .",
+    "prepare:dist": "rm -rf dist && npm run build && node scripts/prepare-dist.mjs"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typedoc": "^0.25.3",
+    "prettier": "^3.2.5",
+    "vitepress": "^1.1.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

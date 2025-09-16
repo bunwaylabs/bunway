@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+:root {
+  --vp-c-brand-1: #3fc5b7;
+  --vp-c-brand-2: #2aa699;
+  --vp-c-brand-3: #1e7c73;
+  --vp-c-brand-soft: rgba(63, 197, 183, 0.16);
+  --vp-c-font-family-base: "Inter", "Segoe UI", Roboto, sans-serif;
+  --vp-font-family-mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+.VPContent {
+  line-height: 1.75;
+}
+
+.VPDoc .content {
+  padding-bottom: 3rem;
+  font-size: 17px;
+}
+
+.VPDoc .content h2 {
+  margin-top: 3rem;
+}
+
+.VPDoc .outline {
+  font-weight: 500;
+}
+
+.VPNavBar {
+  font-weight: 500;
+}
+
+code {
+  font-size: 0.95em;
+}
+
+pre code {
+  font-size: 0.9em;
+  line-height: 1.65;
+}
+
+.vp-doc pre {
+  background: #ffffff;
+  border: 1px solid rgba(63, 197, 183, 0.18);
+  border-radius: 12px;
+}
+
+.vp-doc pre code {
+  background: transparent;
+}
+
+.vp-doc table {
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border: 1px solid rgba(63, 197, 183, 0.25);
+  border-radius: 12px;
+}
+
+.vp-doc th,
+.vp-doc td {
+  border: none;
+  padding: 12px 16px;
+}
+
+.vp-doc blockquote {
+  border-left: 4px solid var(--vp-c-brand-2);
+  background: rgba(63, 197, 183, 0.05);
+  padding: 0.8rem 1rem;
+}
+
+.vp-doc :not(pre) > code {
+  background: rgba(63, 197, 183, 0.08);
+  color: var(--vp-c-brand-3);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+}
+
+.vp-doc .tip {
+  border-left-color: var(--vp-c-brand-2);
+  background: rgba(63, 197, 183, 0.12);
+}
+
+.vp-doc .warning {
+  border-left-color: #f6c945;
+  background: rgba(246, 201, 69, 0.1);
+}
+
+.tsd-panel,
+.tsd-page-title {
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+}
+
+.tsd-page-toolbar {
+  background: rgba(63, 197, 183, 0.1);
+}
+
+html.dark .vp-doc pre {
+  background: #0f1314;
+  border-color: rgba(63, 197, 183, 0.28);
+}
+
+html.dark .vp-doc pre code {
+  background: transparent;
+}
+
+html.dark .vp-doc table {
+  border-color: rgba(63, 197, 183, 0.35);
+}
+
+html.dark .vp-doc :not(pre) > code {
+  background: rgba(63, 197, 183, 0.22);
+}
+
+.timeline {
+  position: relative;
+  margin: 3rem 0;
+  padding-left: 2.75rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 1.1rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(63, 197, 183, 0.65), rgba(30, 124, 115, 0.35));
+}
+
+.timeline__node {
+  position: relative;
+  margin-bottom: 2.75rem;
+  padding: 1.6rem 1.6rem 1.6rem 1.8rem;
+  border-radius: 20px;
+  border: 1px solid rgba(63, 197, 183, 0.25);
+  background: rgba(63, 197, 183, 0.08);
+  box-shadow: 0 18px 40px rgba(63, 197, 183, 0.08);
+}
+
+.timeline__node:last-child {
+  margin-bottom: 0;
+}
+
+.timeline__node::before {
+  content: "";
+  position: absolute;
+  left: -2.1rem;
+  top: 1.8rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3fc5b7, #1e7c73);
+  box-shadow: 0 0 0 4px rgba(63, 197, 183, 0.25);
+}
+
+.timeline__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(63, 197, 183, 0.18);
+  color: rgba(17, 39, 44, 0.85);
+}
+
+.timeline__badge.success {
+  background: rgba(63, 197, 183, 0.25);
+  color: rgba(17, 39, 44, 0.9);
+}
+
+.timeline__node h3 {
+  margin-top: 0.9rem;
+  margin-bottom: 0.6rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+}
+
+.timeline__node p {
+  margin-bottom: 0.9rem;
+}
+
+.timeline__node ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.timeline__node li {
+  margin-bottom: 0.35rem;
+}
+
+html.dark .timeline__node {
+  background: rgba(30, 124, 115, 0.22);
+  border-color: rgba(63, 197, 183, 0.32);
+  box-shadow: 0 18px 40px rgba(17, 39, 44, 0.45);
+}
+
+html.dark .timeline__badge,
+html.dark .timeline__badge.success {
+  color: rgba(230, 255, 252, 0.88);
+}
+
+html.dark .timeline::before {
+  background: linear-gradient(180deg, rgba(63, 197, 183, 0.5), rgba(30, 124, 115, 0.25));
+}

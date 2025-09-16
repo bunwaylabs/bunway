@@ -1,0 +1,9 @@
+{
+  "entryPoints": ["src/index.ts"],
+  "out": "docs/public/api",
+  "skipErrorChecking": true,
+  "tsconfig": "tsconfig.json",
+  "exclude": ["tests/**/*", "examples/**/*", "dist/**/*"],
+  "readme": "none",
+  "plugin": []
+}

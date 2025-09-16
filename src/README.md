@@ -41,7 +41,7 @@ bun add bunway
 
 ## Learn more
 
-- Documentation: <https://github.com/bunwaylabs/bunway/tree/main/docs>
+- Documentation: <https://bunwaylabs.github.io/bunway/>
 - GitHub: <https://github.com/bunwaylabs/bunway>
 
 ## License

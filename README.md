@@ -51,7 +51,7 @@ app.listen({ port: 7070 }, () => {
 });
 ```
 
-For deep usage docs visit the VitePress site (`bun run docs:dev`).
+For deep usage docs visit [https://bunwaylabs.github.io/bunway/](https://bunwaylabs.github.io/bunway/).
 
 ## Project setup (contributors)
 

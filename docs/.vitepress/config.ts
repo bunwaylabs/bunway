@@ -1,8 +1,8 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
-  base: "/bunway",
-  title: "bunway",
+  base: "/bunway/",
+  title: "bunWay",
   description: "Bun-native routing toolkit",
   appearance: "dark",
   cleanUrls: false,
@@ -11,7 +11,7 @@ export default defineConfig({
     ["link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
     ["meta", { name: "theme-color", content: "#1e7c73" }],
     ["meta", { name: "description", content: "Run everything. The Bun way." }],
-    ["meta", { property: "og:title", content: "bunway" }],
+    ["meta", { property: "og:title", content: "bunWay" }],
     ["meta", { property: "og:description", content: "Run everything. The Bun way." }],
   ],
   themeConfig: {
@@ -51,12 +51,7 @@ export default defineConfig({
     ],
     socialLinks: [
       { icon: "github", link: "https://github.com/bunwaylabs/bunway" },
-      {
-        icon: {
-          svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h12"/><path d="M9 3v2"/><path d="M7 9h14"/><path d="M15 7v2"/><path d="M5 15h12"/><path d="M11 13v2"/><path d="M9 19h14"/><path d="M17 17v2"/></svg>',
-        },
-        link: "/community/build-together",
-      },
+      { icon: "npm", link: "https://www.npmjs.com/package/bunway" }
     ],
   },
 });

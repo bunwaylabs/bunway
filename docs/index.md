@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "bunway"
+title: "bunWay"
 hero:
   name: "bunWay"
   text: "Bun-native routing toolkit"
@@ -33,4 +33,4 @@ Start with the [Overview](/guide/overview) to learn the philosophy, then follow 
 - [API Reference](https://bunwaylabs.github.io/bunway/api/index.html) – TypeDoc-generated API reference straight from the source.
 - [Build Together](/community/build-together) – roadmap, phases, and how to contribute.
 
-Ready to experiment? bunway is open-source—clone the repo, run the Bun test suite, and help shape the Bun-native toolkit we all want.
+Ready to experiment? bunWay is open-source—clone the repo, run the Bun test suite, and help shape the Bun-native toolkit we all want.

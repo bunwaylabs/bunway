@@ -1,6 +1,6 @@
-# bunway
+# bunWay
 
-**Run everything. The Bun way.** bunway is an open-source experiment to recreate the ergonomics of Express on top of Bun’s native runtime. If you moved to Bun for its speed and modern APIs but miss the familiar middleware/route flow, this toolkit is for you.
+**Run everything. The Bun way.** bunWay is an open-source experiment to recreate the ergonomics of Express on top of Bun’s native runtime. If you moved to Bun for its speed and modern APIs but miss the familiar middleware/route flow, this toolkit is for you.
 
 ## Overview
 
@@ -43,6 +43,7 @@ bun add bunway
 
 - Documentation: <https://bunwaylabs.github.io/bunway/>
 - GitHub: <https://github.com/bunwaylabs/bunway>
+- npm package: <https://www.npmjs.com/package/bunway>
 
 ## License
 

@@ -1,10 +1,10 @@
-# bunway
+# bunWay
 
-**Run everything. The Bun way.** bunway is an open-source experiment to recreate the ergonomics of Express on top of Bun’s native runtime. If you moved to Bun for its speed and modern APIs but miss the familiar middleware/route flow, this toolkit is for you.
+**Run everything. The Bun way.** bunWay is an open-source experiment to recreate the ergonomics of Express on top of Bun’s native runtime. If you moved to Bun for its speed and modern APIs but miss the familiar middleware/route flow, this toolkit is for you.
 
-> bunway embraces Bun’s primitives (`Request`, `Response`, streams, Bun.serve, Bun’s test runner) and avoids Node polyfills. It’s intentionally Bun-only.
+> bunWay embraces Bun’s primitives (`Request`, `Response`, streams, Bun.serve, Bun’s test runner) and avoids Node polyfills. It’s intentionally Bun-only.
 
-## Why bunway?
+## Why bunWay?
 
 - Couldn’t find a Bun routing library that _felt_ like home for Express developers.
 - Wanted batteries included—body parsing, CORS, error handling—without abandoning Fetch semantics.
@@ -19,7 +19,7 @@
 - Response finalizer merges middleware header bags onto raw `Response` values
 - Bun-native test suite covering routes, errors, CORS, body limits
 
-See the [Roadmap & Contributions](docs/community/build-together.md) for upcoming phases (cookies, sessions, streaming, security, observability, …).
+See the [Roadmap & Contributions](https://bunwaylabs.github.io/bunway/community/build-together.html) for upcoming phases (cookies, sessions, streaming, security, observability, …).
 
 ## Getting started (usage)
 
@@ -82,23 +82,30 @@ Scripts (Bun-native unless noted):
 
 ## Documentation
 
-- Usage guides live in [`docs/guide`](docs/guide) (served by VitePress).
-- Built-in middleware docs live in [`docs/middleware`](docs/middleware).
-- Roadmap & contribution details: [`docs/community/build-together`](docs/community/build-together.md).
-- API reference is generated via TypeDoc into `docs/public/api/index.html` (`bun run docs`).
+- Usage guides live at [https://bunwaylabs.github.io/bunway/guide/overview.html](https://bunwaylabs.github.io/bunway/guide/overview.html).
+- Built-in middleware docs live at [https://bunwaylabs.github.io/bunway/middleware/index.html](https://bunwaylabs.github.io/bunway/middleware/index.html).
+- Roadmap & contribution details live at [https://bunwaylabs.github.io/bunway/community/build-together.html](https://bunwaylabs.github.io/bunway/community/build-together.html).
+- API reference is hosted at [https://bunwaylabs.github.io/bunway/api/index.html](https://bunwaylabs.github.io/bunway/api/index.html).
 
 ## Contributing
 
-bunway belongs to the community—anyone can use it, shape it, and help prove Bun can be an all-in-one backend platform.
+bunWay belongs to the community—anyone can use it, shape it, and help prove Bun can be an all-in-one backend platform.
 
 1. **Stay Bun-native** – rely on Bun’s standard library; avoid Node-only dependencies.
 2. **Pick a phase** – grab an item from the roadmap and open an issue/PR to discuss approach.
 3. **Prototype boldly** – rough PRs welcome; iterate together.
 4. **Test & document** – add Bun tests, update TypeDoc comments, expand VitePress guides.
-5. **Keep it fun** – bunway is a playground. Share ideas, experiment, and help fellow Bun developers feel at home.
+5. **Keep it fun** – bunWay is a playground. Share ideas, experiment, and help fellow Bun developers feel at home.
 
 Guidelines, scripts, and workflow tips live in [docs/community/build-together.md](docs/community/build-together.md).
 
 ## License
 
-MIT © bunway contributors
+MIT © bunWay contributors
+
+
+## Learn more
+
+- Documentation: <https://bunwaylabs.github.io/bunway/>
+- GitHub: <https://github.com/bunwaylabs/bunway>
+- npm package: <https://www.npmjs.com/package/bunway>

@@ -1,7 +1,7 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
-  base: "/",
+  base: "/bunway",
   title: "bunway",
   description: "Bun-native routing toolkit",
   appearance: "dark",

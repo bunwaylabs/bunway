@@ -51,7 +51,7 @@ app.listen({ port: 7070 }, () => {
 });
 ```
 
-For deep usage docs visit [https://bunwaylabs.github.io/bunway/](https://bunwaylabs.github.io/bunway/).
+For deep usage docs visit <a href="https://bunwaylabs.github.io/bunway/">bunWay Docs</a>.
 
 ## Project setup (contributors)
 
@@ -82,10 +82,10 @@ Scripts (Bun-native unless noted):
 
 ## Documentation
 
-- Usage guides live at [https://bunwaylabs.github.io/bunway/guide/overview.html](https://bunwaylabs.github.io/bunway/guide/overview.html).
-- Built-in middleware docs live at [https://bunwaylabs.github.io/bunway/middleware/index.html](https://bunwaylabs.github.io/bunway/middleware/index.html).
-- Roadmap & contribution details live at [https://bunwaylabs.github.io/bunway/community/build-together.html](https://bunwaylabs.github.io/bunway/community/build-together.html).
-- API reference is hosted at [https://bunwaylabs.github.io/bunway/api/index.html](https://bunwaylabs.github.io/bunway/api/index.html).
+- Usage guides live at <a href="https://bunwaylabs.github.io/bunway/guide/overview.html">Guide Overview</a>.
+- Built-in middleware docs live at <a href="https://bunwaylabs.github.io/bunway/middleware/index.html">Middleware Reference</a>.
+- Roadmap & contribution details live at <a href="https://bunwaylabs.github.io/bunway/community/build-together.html">Community Roadmap</a>.
+- API reference is hosted at <a href="https://bunwaylabs.github.io/bunway/api/index.html">API Index</a>.
 
 ## Contributing
 
@@ -97,7 +97,7 @@ bunWay belongs to the community—anyone can use it, shape it, and help prove Bu
 4. **Test & document** – add Bun tests, update TypeDoc comments, expand VitePress guides.
 5. **Keep it fun** – bunWay is a playground. Share ideas, experiment, and help fellow Bun developers feel at home.
 
-Guidelines, scripts, and workflow tips live in [docs/community/build-together.md](docs/community/build-together.md).
+Guidelines, scripts, and workflow tips live in <a href="https://bunwaylabs.github.io/bunway/community/build-together.html">Community Roadmap</a>.
 
 ## License
 
@@ -106,6 +106,6 @@ MIT © bunWay contributors
 
 ## Learn more
 
-- Documentation: <https://bunwaylabs.github.io/bunway/>
-- GitHub: <https://github.com/bunwaylabs/bunway>
-- npm package: <https://www.npmjs.com/package/bunway>
+- Documentation: <a href="https://bunwaylabs.github.io/bunway/">bunWay Docs</a>
+- GitHub: <a href="https://github.com/bunwaylabs/bunway">bunwaylabs/bunway</a>
+- npm package: <a href="https://www.npmjs.com/package/bunway">bunway on npm</a>

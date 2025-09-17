@@ -1,0 +1,48 @@
+name: Feature request
+description: Share an idea that would make bunWay even better.
+title: "feat: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Dream big! Tell us how bunWay can help more Bun developers feel at home.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What would you like to see?
+      description: Short pitch for the feature or improvement.
+      placeholder: Describe the capability you have in mind.
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Why does this matter?
+      description: Explain the use case, problem, or developer pain this solves.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution or API
+      description: Share rough API ideas, sketches, or prior art (Express, Bun, etc.).
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Mention any workarounds or other approaches you explored.
+  - type: checkboxes
+    id: readiness
+    attributes:
+      label: Are you willing to help build it?
+      options:
+        - label: "I can help with a PR"
+        - label: "I can help test"
+        - label: "I can help document it"
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Links, references, or prior art we should look at.

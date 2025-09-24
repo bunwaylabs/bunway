@@ -1,23 +1,6 @@
 import type { Handler } from "../core/router";
 import type { WayContext } from "../core/context";
 
-/**
- * Bun-native CORS middleware compatible with bunWay's router finalizer.
- *
- * Usage:
- * ```ts
- * // Allow any localhost origin and send credentials
- * app.use(cors({ origin: (origin) => origin?.startsWith("http://localhost") ? origin : false, credentials: true }));
- *
- * // Simple allow-list
- * app.use(cors({ origin: ["https://app.example.com", /\.my-app\.com$/] }));
- * ```
- *
- * The middleware inspects the incoming Origin/Access-Control headers,
- * determines whether the request should be allowed, and records all response
- * headers so the router can apply them even if a handler returns a raw `Response`.
- */
-
 const DEFAULT_METHODS = ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "OPTIONS"];
 const DEFAULT_MAX_AGE = 600;
 
@@ -124,7 +107,23 @@ function formatHeaderList(values: string[] | undefined): string | null {
   return values.join(", ");
 }
 
-/** Create a CORS middleware instance for the given policy options. */
+/**
+ * Bun-native CORS middleware compatible with bunWay's router finalizer.
+ *
+ * @example Allow any localhost origin and forward credentials
+ * ```ts
+ * app.use(cors({ origin: (origin) => origin?.startsWith("http://localhost") ? origin : false, credentials: true }));
+ * ```
+ *
+ * @example Simple allow-list
+ * ```ts
+ * app.use(cors({ origin: ["https://app.example.com", /\.my-app\.com$/] }));
+ * ```
+ *
+ * The middleware inspects the incoming Origin/Access-Control headers,
+ * determines whether the request should be allowed, and records all response
+ * headers so the router can apply them even if a handler returns a raw `Response`.
+ */
 export function cors(options: CORSOptions = {}): Handler {
   const {
     origin: originOption = "*",

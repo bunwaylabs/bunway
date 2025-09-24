@@ -6,7 +6,6 @@ import type { Handler } from "./core/router";
 import {
   BunWayApp,
   bunway as createBunwayApp,
-  BUNWAY_DEFAULT_PORT,
   type BunWayOptions,
 } from "./server";
 import { json, text, urlencoded } from "./middlewares/bodyParser";

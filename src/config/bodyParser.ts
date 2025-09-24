@@ -57,6 +57,13 @@ export const DEFAULT_BODY_PARSER_OPTIONS: ResolvedBodyParserOptions = {
   },
 };
 
+/**
+ * Merge caller overrides with an existing body parser configuration.
+ *
+ * @param overrides User-supplied preferences (enable flags, size limits, type matchers).
+ * @param base Configuration to merge onto, defaulting to the global defaults.
+ * @returns A fully resolved configuration where every parser has concrete settings.
+ */
 export function resolveBodyParserOptions(
   overrides?: BodyParserOptions,
   base: ResolvedBodyParserOptions = DEFAULT_BODY_PARSER_OPTIONS

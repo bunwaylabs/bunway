@@ -1,4 +1,12 @@
-import {
+type BunwayExports = typeof import("../src");
+
+// When working inside the repo we usually want to import from `src/` so edits are reflected
+// immediately. Published consumers resolve the package from `dist/`. Toggle via env.
+const runtime = (await (Bun.env.BUNWAY_USE_SRC === "true"
+  ? import("../src")
+  : import("../dist"))) as BunwayExports;
+
+const {
   bunway,
   cors,
   errorHandler,
@@ -6,14 +14,16 @@ import {
   json,
   text,
   urlencoded,
-  Router,
+  Router: RouterCtor,
   BUNWAY_DEFAULT_PORT,
-} from "../dist";
+} = runtime;
+
+type RouterInstance = InstanceType<typeof RouterCtor>;
 
 type User = { id: string; name: string };
 
-function createAdminRouter(): Router {
-  const router = new Router();
+function createAdminRouter(): RouterInstance {
+  const router = new RouterCtor();
   router.use(async (ctx, next) => {
     const auth = ctx.req.headers.get("authorization");
     if (auth !== "super-secret") {
@@ -28,8 +38,8 @@ function createAdminRouter(): Router {
   return router;
 }
 
-function createApiRouter(): Router {
-  const router = new Router();
+function createApiRouter(): RouterInstance {
+  const router = new RouterCtor();
   const users = new Map<string, User>([
     ["1", { id: "1", name: "Ada" }],
     ["2", { id: "2", name: "Linus" }],
@@ -77,6 +87,9 @@ function createApiRouter(): Router {
 export function createApp(): ReturnType<typeof bunway> {
   const app = bunway();
 
+  const shouldLogRequests =
+    Bun.env.BUNWAY_LOG_REQUESTS === "true" || Bun.env.NODE_ENV !== "production";
+
   app.use(
     cors({
       origin: (origin) => {
@@ -90,6 +103,10 @@ export function createApp(): ReturnType<typeof bunway> {
   );
 
   app.use(async (ctx, next) => {
+    if (!shouldLogRequests) {
+      await next();
+      return;
+    }
     const start = performance.now();
     await next();
     const duration = performance.now() - start;
@@ -121,6 +138,8 @@ export function createApp(): ReturnType<typeof bunway> {
 
   app.get("/health", (ctx) => ctx.res.text("OK"));
   app.post("/echo", async (ctx) => {
+    // Auto body parsing ran earlier, so `ctx.req.body` is already populated; parseBody() is
+    // called here only to illustrate the manual override API.
     const body = await ctx.req.parseBody();
     return ctx.res.ok({ body });
   });

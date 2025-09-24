@@ -1,6 +1,6 @@
 import { describe, it, expect } from "bun:test";
 import { WayRequest, WayResponse } from "../../src/core/context";
-import { DEFAULT_BODY_PARSER_OPTIONS } from "../../src/config";
+import { DEFAULT_BODY_PARSER_OPTIONS, resolveBodyParserOptions } from "../../src/config";
 import { buildRequest, TEST_BASE_URL } from "../testUtils";
 
 describe("WayRequest", () => {
@@ -62,6 +62,22 @@ describe("WayRequest", () => {
     expect(wayReq.bodyType).toBe("text");
   });
 
+  it("merges multiple override calls", async () => {
+    const request = buildRequest("/body", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ a: "1" }).toString(),
+    });
+
+    const wayReq = new WayRequest(request);
+    wayReq.applyBodyParserOverrides({ json: { enabled: false } });
+    wayReq.applyBodyParserOverrides({ urlencoded: { enabled: true } });
+
+    const config = wayReq.getBodyParserConfig();
+    expect(config.json.enabled).toBe(false);
+    expect(config.urlencoded.enabled).toBe(true);
+  });
+
   it("produces payload too large errors when exceeding limit", async () => {
     const req = buildRequest("/json", {
       method: "POST",
@@ -80,6 +96,25 @@ describe("WayRequest", () => {
       status: 413,
       message: "Payload Too Large",
     });
+  });
+
+  it("falls back to secondary parser when primary type disabled", async () => {
+    const req = buildRequest("/raw", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ powered: true }),
+    });
+
+    const config = resolveBodyParserOptions(
+      { json: { enabled: false }, text: { enabled: true } },
+      DEFAULT_BODY_PARSER_OPTIONS
+    );
+
+    const wayReq = new WayRequest(req, config);
+    await wayReq.autoParseBody(config);
+
+    expect(wayReq.bodyType).toBe("text");
+    expect(await wayReq.parseBody()).toContain("powered");
   });
 });
 
@@ -115,5 +150,17 @@ describe("WayResponse", () => {
     const noContent = res.noContent();
     expect(noContent.status).toBe(204);
     expect(await noContent.text()).toBe("");
+  });
+
+  it("preserves custom headers across helper calls", async () => {
+    const res = new WayResponse();
+    res.header("X-Test", "yes");
+    const response = res.status(202).json({ ok: true });
+
+    expect(response.status).toBe(202);
+    expect(response.headers.get("X-Test")).toBe("yes");
+
+    const followUp = res.text("later");
+    expect(followUp.headers.get("X-Test")).toBe("yes");
   });
 });

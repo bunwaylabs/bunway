@@ -26,7 +26,16 @@
     "rest",
     "web-framework",
     "server",
-    "typescript"
+    "typescript",
+    "bunwaylabs",
+    "bun-express",
+    "bun-middleware",
+    "bun-http",
+    "bun-routing",
+    "fetch-router",
+    "express-middleware",
+    "bun-serve",
+    "bun-framework"
   ],
   "scripts": {
     "typecheck": "tsc --noEmit",

@@ -1,3 +1,8 @@
+---
+title: CORS Middleware
+description: Configure bunWay’s Bun-native CORS middleware to handle simple and preflight requests with granular origin policies.
+---
+
 # CORS Middleware
 
 `cors()` brings fine-grained CORS control to bunway while keeping everything Bun-native. The middleware examines the incoming Origin/Access-Control headers, decides whether to allow the request, and records headers so the router can merge them even when you return a raw `Response` object.

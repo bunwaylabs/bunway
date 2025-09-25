@@ -1,3 +1,8 @@
+---
+title: Error Handler Middleware
+description: Catch and format errors in bunWay using errorHandler(), with logging hooks and HttpError support.
+---
+
 # Error Handler Middleware
 
 `errorHandler()` provides a catch-all layer that logs unexpected errors, respects thrown `HttpError` instances, and keeps responses Fetch-friendly.

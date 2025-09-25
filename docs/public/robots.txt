@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bunwaylabs.github.io/bunway/sitemap.xml

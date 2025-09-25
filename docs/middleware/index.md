@@ -1,3 +1,8 @@
+---
+title: Middleware Overview
+description: Browse bunWay’s built-in Bun-native middleware for body parsing, CORS, and error handling, plus tips for creating your own helpers.
+---
+
 # Middleware Overview
 
 bunway ships a set of Bun-native middleware helpers to cover common HTTP needs. Each helper mirrors Express-style APIs while staying close to Bun’s Fetch primitives.

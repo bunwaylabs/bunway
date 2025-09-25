@@ -1,3 +1,8 @@
+---
+title: Core Primitives
+description: Explore bunWay’s WayContext, WayRequest, and WayResponse helpers to understand how Bun-native handlers work under the hood.
+---
+
 # Core Primitives
 
 bunway decorates Bun’s Fetch primitives with lightweight helpers. Understanding these building blocks makes it easier to compose middleware and handlers.
@@ -36,12 +41,17 @@ app.get("/users/:id", async (ctx) => {
 - `params` / `param()` – Express-style route parameters.
 - `query` – `URLSearchParams` instance for query string access.
 - `locals` – shared mutable state across middleware.
-- `parseBody()` – respects global + per-request overrides.
+- `body` – cached payload filled by the auto parser; perfect when you just need the data.
+- `parseBody()` – respects global + per-request overrides and returns the cached payload.
 - `applyBodyParserOverrides()` – tweak body parsing on the fly.
 - `rawBody()` / `rawText()` – lazy access to the request body (cached).
 
 ::: tip Locals
 Use `ctx.req.locals` as a per-request scratchpad. It’s perfect for sharing deserialized users, permissions, or tracing IDs between middleware and handlers.
+:::
+
+::: tip Fun fact — The Bun way
+`ctx.req.bodyParseError` stores details when parsing fails (status + message). Check it before running expensive logic to send friendlier responses.
 :::
 
 ## WayResponse

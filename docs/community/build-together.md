@@ -1,3 +1,8 @@
+---
+title: Roadmap & Contributions
+description: Explore bunWay’s community roadmap, contribution guidelines, and current focus areas for Bun-native features.
+---
+
 # Roadmap & Contributions
 
 bunway is a community-powered experiment to build the Bun-native, all-in-one web toolkit we want to use. Think of this page as our shared map—and the invitation to help draw the next checkpoints.

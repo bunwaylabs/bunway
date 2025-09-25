@@ -1,3 +1,8 @@
+---
+title: Router Deep Dive
+description: Learn how bunWay’s router composes middleware, sub-routers, and native Fetch responses while staying true to Bun.
+---
+
 # Router Deep Dive
 
 bunway’s router borrows Express’ ergonomics while staying true to Bun’s Fetch APIs. This page explains the lifecycle so you can compose middleware, sub-routers, and custom responses with confidence.
@@ -140,6 +145,52 @@ const router = new Router({
 ```
 
 Handlers can override parsing dynamically with `ctx.req.applyBodyParserOverrides()`.
+
+## Recipes — run everything, the Bun way
+
+### Friendly request logger
+
+```ts
+app.use(async (ctx, next) => {
+  const start = performance.now();
+  await next();
+  const ms = (performance.now() - start).toFixed(1);
+  console.log(`${ctx.req.method} ${ctx.req.path} → ${ctx.res.statusCode} (${ms}ms)`);
+});
+```
+
+Flip logging on or off with environment variables (e.g., `BUNWAY_LOG_REQUESTS=true`) to keep production output tidy.
+
+### Admin-only sub-router
+
+```ts
+const admin = new Router();
+// bring HttpError in from "bunway" to reuse friendly responses
+admin.use(async (ctx, next) => {
+  if (ctx.req.headers.get("authorization") !== "super-secret") {
+    throw new HttpError(401, "Admin authorization required");
+  }
+  await next();
+});
+
+admin.get("/stats", (ctx) => ctx.res.json({ uptime: process.uptime() }));
+
+app.use("/admin", admin);
+```
+
+### Per-request format switch
+
+```ts
+app.post("/webhook", async (ctx) => {
+  ctx.req.applyBodyParserOverrides({ text: { enabled: true }, json: { enabled: false } });
+  const payload = await ctx.req.parseBody();
+  return ctx.res.ok({ received: payload });
+});
+```
+
+::: tip Fun fact — The Bun way
+Need to tweak parsing for an entire app? Pair these recipes with `app.use(bunway.bodyParser({ text: { enabled: true } }))` and your overrides land before the auto parser runs.
+:::
 
 ## Advanced patterns
 

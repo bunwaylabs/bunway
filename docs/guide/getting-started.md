@@ -1,3 +1,8 @@
+---
+title: Getting Started
+description: Learn how to install bunWay, wire up middleware, and build your first Bun-native server with familiar Express-style ergonomics.
+---
+
 # Getting Started
 
 bunway lets you write Bun HTTP handlers with familiar Express-style ergonomics while staying 100% Bun-native.
@@ -30,6 +35,10 @@ app.listen({ port: 7070 }, () => {
 });
 ```
 
+::: tip Fun fact — The Bun way
+By the time `/` runs, bunway already parsed the body for you using Bun’s lightning-fast streams. Reach for `ctx.req.parseBody()` only when you need custom limits or formats—the friendly `ctx.req.body` is ready right away.
+:::
+
 ::: tip Bun-first only
 bunway targets Bun exclusively—no Node polyfills or compatibility layers are shipped. Use Bun v1.0+ for best results.
 :::
@@ -42,7 +51,7 @@ Every handler receives a `WayContext`:
 
 ```ts [Server]
 app.post("/echo", async (ctx) => {
-  const body = await ctx.req.parseBody();
+  const body = await ctx.req.parseBody(); // merges overrides and returns the cached payload
   return ctx.res.json({ received: body });
 });
 ```
@@ -60,6 +69,8 @@ curl -X POST http://localhost:7070/echo \
 
 Want the raw Fetch API? Return a `Response` directly and bunway will still apply middleware headers.
 
+Need to change parsing defaults for an entire app? Drop in `app.use(bunway.bodyParser({ text: { enabled: true } }))`—the helper composes The Bun way with zero boilerplate.
+
 ## Sub-routers
 
 ```ts
@@ -71,6 +82,10 @@ api.get("/users", (ctx) => ctx.res.json({ users: [] }));
 const app = bunway();
 app.use("/api", api);
 ```
+
+::: tip The Bun way
+Mounted routers inherit global middleware (CORS, logging, error handling), so `/api` feels cohesive without extra wiring.
+:::
 
 ## Testing with Bun
 

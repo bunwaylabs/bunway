@@ -1,3 +1,8 @@
+---
+title: Overview
+description: Discover bunWay’s mission to bring Express-style routing to Bun, its goals, current features, and the roadmap ahead.
+---
+
 # Overview
 
 bunway is an experiment to bring Express-like ergonomics to Bun without sacrificing Bun’s native speed or Web-first APIs. The goal is simple: **give Bun developers an all-in-one routing toolkit** that feels familiar, requires no external polyfills, and scales from quick prototypes to serious services.

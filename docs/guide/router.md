@@ -88,15 +88,9 @@ admin.get("/stats", getStats);
 api.use("/admin", admin);
 ```
 
-## Returning native `Response`
-
-Prefer working with Fetch directly? Return `Response` objects:
-
-```ts
-app.get("/raw", () => new Response("raw body", { status: 202 }));
-```
-
-bunway still merges header bags (CORS, security headers, etc.) so clients receive consistent responses.
+::: tip Returning native responses
+Handlers can always return `Response` objects straight from Fetch APIs—bunWay will still merge any middleware headers during finalization.
+:::
 
 ## Error handling
 
@@ -188,8 +182,8 @@ app.post("/webhook", async (ctx) => {
 });
 ```
 
-::: tip Fun fact — The Bun way
-Need to tweak parsing for an entire app? Pair these recipes with `app.use(bunway.bodyParser({ text: { enabled: true } }))` and your overrides land before the auto parser runs.
+::: note Configuration tip
+Combine these recipes with `app.use(bunway.bodyParser({ text: { enabled: true } }))` to set defaults before per-request overrides kick in.
 :::
 
 ## Advanced patterns

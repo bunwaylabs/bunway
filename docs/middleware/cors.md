@@ -66,15 +66,24 @@ app.get("/raw", () => new Response("raw", { status: 202 }));
 
 ## Options reference
 
-| Option                | Type                                         | Default                                                  | Description                                            |
-| --------------------- | -------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------ | ----- | ------------- |
-| `origin`              | `"\*" \| true \| string \| RegExp \| (string | RegExp)[] \| (origin, ctx) => string                     | false`                                                 | `"*"` | Origin policy |
-| `credentials`         | `boolean`                                    | `false`                                                  | Enable credentialed requests                           |
-| `methods`             | `string[]`                                   | `['GET','HEAD','PUT','PATCH','POST','DELETE','OPTIONS']` | Allowed methods for preflight                          |
-| `allowedHeaders`      | `string[]`                                   | `undefined`                                              | Force allow-list of headers instead of echoing request |
-| `exposedHeaders`      | `string[]`                                   | `undefined`                                              | Values for `Access-Control-Expose-Headers`             |
-| `maxAge`              | `number`                                     | `600`                                                    | Preflight cache duration                               |
-| `allowPrivateNetwork` | `boolean`                                    | `false`                                                  | Enable `Access-Control-Allow-Private-Network`          |
+:::details CORS Options reference
+
+- **`origin`**: `"*"` \| `true` \| `string` \| `RegExp` \| `(string \| RegExp)[]` \| `(origin, ctx) => string \| false`
+  - Decide which origins are allowed. Returning `false` blocks the request; when `credentials: true`, bunWay reflects the approved origin instead of `"*"`.
+- **`credentials`**: `boolean` (default `false`)
+  - Allow credentialed requests. bunWay automatically prevents `"*"` when enabled.
+- **`methods`**: `string[]` (default `['GET','HEAD','PUT','PATCH','POST','DELETE','OPTIONS']`)
+  - Whitelist methods used in preflight responses.
+- **`allowedHeaders`**: `string[]`
+  - Force a specific allow-list instead of echoing `Access-Control-Request-Headers`.
+- **`exposedHeaders`**: `string[]`
+  - Populate `Access-Control-Expose-Headers`.
+- **`maxAge`**: `number` (default `600`)
+  - Cache duration (seconds) for successful preflight responses.
+- **`allowPrivateNetwork`**: `boolean` (default `false`)
+  - Opt into `Access-Control-Allow-Private-Network`.
+
+:::
 
 ## Recommendations
 
